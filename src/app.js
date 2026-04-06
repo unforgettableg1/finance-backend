@@ -8,9 +8,12 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 const authRoutes = require('./routes/authRoutes'); // ✅ ADD THIS
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Finance Dashboard API is running 🚀");
+});
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
